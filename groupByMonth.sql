@@ -1,6 +1,17 @@
 SELECT
-	Month(t.[date]) as [Μερÿφ],
-	Sum(t.[hours]) as [Ρσμμΰ]
+	Month(t.[date]) as [ΓΓ¥Γ±ΓΏΓ¶],
+	Sum(t.[hours]) as [Γ‘Γ³Γ¬Γ¬Γ ]
     FROM [dbo].[Worktime] as t
 	WHERE [person_id] = 70
 Group By Month(t.[date])
+
+//LINQ
+
+var month = (from hours in Model.Worktimes
+                 where hours.PersonId == Model.PersonId
+                 group hours.Hours by new { hours.Date.Month } into g
+                 select new
+                 {
+                     Months = g.Key.Month,
+                     SummHourse = g.Sum()
+                 }).ToList();
