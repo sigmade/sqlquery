@@ -32,3 +32,15 @@ ON W.local_id = L.local_id
 LEFT JOIN Position AS Ps
 ON W.position_id = Ps.position_id
 WHERE P.person_id = 3 AND Ps.position_id = 3
+
+
+SELECT 
+F.TeamName, 
+S.TeamName, 
+M.MatchDate,
+M.FirstTeamScore,
+M.SecondTeamScore
+FROM 
+Matches AS M 
+INNER JOIN Teams AS F ON M.FirstTeamId = F.TeamId
+INNER JOIN Teams AS S ON M.SecondTeamId = S.TeamId
