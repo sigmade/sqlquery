@@ -44,3 +44,9 @@ FROM
 Matches AS M 
 INNER JOIN Teams AS F ON M.FirstTeamId = F.TeamId
 INNER JOIN Teams AS S ON M.SecondTeamId = S.TeamId
+
+
+SELECT        M.MatchId AS Id, M.MatchDate AS Date, F.TeamName AS FirstTeam, S.TeamName AS SecondTeam, M.FirstTeamScore, M.SecondTeamScore
+FROM            dbo.Matches AS M INNER JOIN
+                         dbo.Teams AS F ON M.FirstTeamId = F.TeamId INNER JOIN
+                         dbo.Teams AS S ON M.SecondTeamId = S.TeamId
