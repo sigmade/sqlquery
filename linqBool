@@ -1,3 +1,12 @@
+select exists(
+selecct *
+from AspNetUsers anu
+inner join AspNetuserRoles ansr on ansr.UserId = anu.Id
+inner join AspNetRoles anr on anr.Id = ansrRolId
+where anr.Name in (admin, root))
+
+//////////////////
+
 var userRole = _db.Users
                     .Where(u => u.Id == request.UserId)
                     .Join(_db.UserRoles,
