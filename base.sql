@@ -151,3 +151,6 @@ WHERE ProductID = 1
 SELECT SUM(UnitPrice*Quantity*(1-Discount)) AS GrandTotal
 FROM   [Order Details]
 WHERE ProductID = 1
+
+select count(CITY) - count(DISTINCT CITY)
+from STATION 
